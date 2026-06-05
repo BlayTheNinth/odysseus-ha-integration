@@ -1,0 +1,56 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Odysseus",
+        "description": "Enter the connection details for your Odysseus instance. The API token needs the chat scope, and Odysseus must have a default chat endpoint/model configured for that token owner.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "api_key": "Odysseus API token",
+          "use_ssl": "Use HTTPS",
+          "verify_ssl": "Verify SSL certificate"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to Odysseus. Check host and port.",
+      "invalid_auth": "Invalid Odysseus API token.",
+      "missing_default_chat": "Odysseus is reachable, but this API token owner has no default chat endpoint/model configured.",
+      "unknown": "An unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This Odysseus instance is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "api_key": "Odysseus API token",
+          "use_ssl": "Use HTTPS",
+          "verify_ssl": "Verify SSL certificate",
+          "conversation_mode": "Odysseus mode",
+          "allow_web_search": "Allow web search tools",
+          "allow_bash": "Allow shell tools",
+          "prompt": "System Prompt",
+          "include_exposed_entities": "Include exposed entities in prompt",
+          "context_max_chars": "Max context characters",
+          "continued_conversation_mode": "Follow-up listening",
+          "enable_session_reuse": "Reuse Odysseus sessions across short voice turns",
+          "session_timeout_seconds": "Voice session reuse timeout (seconds)",
+          "expose_device_context": "Include device/satellite context in prompt",
+          "always_speak_fallback": "Always speak replies through fallback TTS",
+          "fallback_media_player": "Fallback media player entity_id",
+          "fallback_tts_engine": "Fallback TTS entity_id"
+        },
+        "data_description": {
+          "conversation_mode": "Agent mode enables Odysseus tools and automations. Chat mode is plain conversation.",
+          "continued_conversation_mode": "Choose when Home Assistant keeps listening after an Odysseus reply: never, always, or only when Odysseus asks a follow-up question."
+        }
+      }
+    }
+  }
+}
