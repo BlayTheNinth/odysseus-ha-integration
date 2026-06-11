@@ -40,7 +40,7 @@ A [Home Assistant](https://home-assistant.io/) custom integration that exposes [
 
 ## Configuration
 
-1. In Odysseus, create an API token with the `chat` scope (see below).
+1. In Odysseus, go to **Settings -> Integrations** and create an API token with the `chat` scope.
 2. Make sure the token owner has a default chat endpoint/model configured in Odysseus.
 3. Apply a patch to make Odysseus use the effective user for the default-chat endpoint (see below).
 4. In Home Assistant, go to **Settings -> Devices & Services -> Add Integration**.
@@ -56,26 +56,6 @@ Default connection settings:
 | API token | empty | Odysseus token with `chat` scope |
 | Use HTTPS | No | Enable if Odysseus is behind HTTPS |
 | Verify SSL certificate | No | Disable for self-signed certificates |
-
-### Creating an API Token
-
-There is no straightforward way to create a generic API Token. You can technically create one by going to "Integrations" and selecting "Codex Agent", but that's not really clean.
-
-Another way would be opening your browser console and pasting:
-
-```
-const fd = new FormData();
-  fd.append("name", "session-api");
-  fd.append("scopes", "chat");
-  const r = await fetch("/api/tokens", {
-    method: "POST",
-    credentials: "same-origin",
-    body: fd
-  });
-  await r.json();
-```
-
-Keep in mind that pasting code snippets into your browser console is a common attack vector. Only ever paste code you have read and understood.
 
 ### Patching Odysseus to fix `/api/default-chat`
 
